@@ -14,10 +14,15 @@ def instance_generator():
     minimum_weight and maximum_weight.
     It then proceeds to send the inputs to the write_file function.
     """
+    # Input for the number of instance that we want to generate.
     instances_number = int(input("Enter the number of instances you want to generate: "))
+    # Input for the minimum value that we want to generate.
     minimum_value = int(input("Enter the minimum value: "))
+    # Input for the maximum that we want to generate.
     maximum_value = int(input("Enter the maximum value: "))
+    # Input for the minimum weight that we want to generate.
     minimum_weight = int(input("Enter the minimum weight: "))
+    # Input for the maximum weight that we want to generate.
     maximum_weight = int(input("Enter the maximum weight: "))
     # Calls the write file function.
     write_file(instances_number, minimum_value, maximum_value, minimum_weight, maximum_weight)
@@ -25,7 +30,7 @@ def instance_generator():
 def write_file(instances_number, minimum_value, maximum_value, minimum_weight, maximum_weight):
     """
     Write file function.
-    A function that given 6 inputs it generates a .dat file that includes all the data generated.
+    A function that given 5 inputs it generates a .dat file that includes all the data generated.
     """
     filename = "instance.dat"
     with open(filename, 'w') as file_object:
@@ -41,7 +46,9 @@ def read_file(filename):
     A function that reads the .dat file and proceeds to convert the data (given as a String data type)
     to integer data type.
     """
+    # Numbers list that contains all the data from the .dat file.
     numbers = []
+    # Weights list that contains all the weights respectively.
     weights = []
     # Opens a filename in read mode.
     with open(filename, 'r') as file_object:
