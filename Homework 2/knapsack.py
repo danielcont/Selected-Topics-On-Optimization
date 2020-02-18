@@ -2,6 +2,7 @@ import random
 import time
 from operator import itemgetter
 
+# Made by Jose Daniel Saldaña Flores @ https://github.com/DanielFL0
 # Develop instance generator.
 # Develop a write to file function.
 # Develop a read from file function.
@@ -15,15 +16,15 @@ def instance_generator():
     It then proceeds to send the inputs to the write_file function.
     """
     # Input for the number of instance that we want to generate.
-    instances_number = int(input("Enter the number of instances you want to generate: "))
+    instances_number = 1000000 # int(input("Ingresa el numero de instancias que desea generar: "))
     # Input for the minimum value that we want to generate.
-    minimum_value = int(input("Enter the minimum value: "))
+    minimum_value = 2 # int(input("Ingresa el valor minimo: "))
     # Input for the maximum that we want to generate.
-    maximum_value = int(input("Enter the maximum value: "))
+    maximum_value = 50 # int(input("Ingresa el valor maximo: "))
     # Input for the minimum weight that we want to generate.
-    minimum_weight = int(input("Enter the minimum weight: "))
+    minimum_weight = 4 # int(input("Ingresa el peso minimo: "))
     # Input for the maximum weight that we want to generate.
-    maximum_weight = int(input("Enter the maximum weight: "))
+    maximum_weight = 68 # int(input("Ingresa el peso mayor: "))
     # Calls the write file function.
     write_file(instances_number, minimum_value, maximum_value, minimum_weight, maximum_weight)
 
@@ -83,7 +84,7 @@ def heuristic():
     capacity, numbers = read_file("instance.dat")
     print(capacity)
     # Store the heuristic option as an int value.
-    heuristic_option = int(input("Which heuristic would you like to run? \n 1.- By weight \n 2.- By value \n 3.- By ratio \n Option: "))
+    heuristic_option = 3 # int(input("Cual heuristica desea correr? \n 1.- Por peso \n 2.- Por valor \n 3.- Por radio \n Opcion: "))
     # List that will contain either the value or weight of items in the knapsack.
     knapsack = []
     # List that will contain the item's ID in the knapsack.
@@ -120,6 +121,7 @@ def heuristic():
         print(weight_sum)
 
     elif heuristic_option == 3:
+        start_time = time.time()
         numbers = sorted(numbers, key=itemgetter(3), reverse=True)
         for i in range(len(numbers)):
             if numbers[i][2] <= capacity:
@@ -129,8 +131,8 @@ def heuristic():
                 weight_sum += numbers[i][2]
             else:
                 break
-        print(knapsack)
-        print(item_id)
+        # print(knapsack)
+        # print(item_id)
         print(weight_sum)
 
 start_time = time.time()
